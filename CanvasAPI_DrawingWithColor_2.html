@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas#canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="460", height="100"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+  let canvasRenderingContext = canvas.getContext("2d");
+
+  // Square 1
+  canvasRenderingContext.fillStyle = "rgb(107, 103, 239)";
+  canvasRenderingContext.fillRect(10, 10, 80, 80);
+
+  // Square 2
+  canvasRenderingContext.fillStyle = "rgb(93, 192, 208)";
+  canvasRenderingContext.fillRect(100, 10, 80, 80);
+
+  // Square 3 | Only frame | //
+  canvasRenderingContext.strokeStyle = "rgb(240, 95, 95)";
+  canvasRenderingContext.strokeRect(190, 10, 80, 80);
+
+  // Square 4 | Only frame | //
+  canvasRenderingContext.strokeStyle = "rgb(103, 255, 164)";
+  canvasRenderingContext.strokeRect(280, 10, 80, 80);
+
+  // Head
+  canvasRenderingContext.fillStyle = "rgb(50, 217, 242)";
+  canvasRenderingContext.fillRect(370, 10, 80, 80);
+
+  // Clear rect for the eyes place
+  canvasRenderingContext.clearRect(380, 25, 60, 15);
+
+  // Draw the eyes
+  canvasRenderingContext.fillStyle = "rgb(218, 227, 90)";
+  canvasRenderingContext.fillRect(390, 30, 5, 5);
+  canvasRenderingContext.fillRect(430, 30, 5, 5);
+
+  // Nose
+  canvasRenderingContext.fillRect(405, 50, 10, 10)
+
+  // Clear rect for the mouth
+  canvasRenderingContext.clearRect(380, 70, 60, 10);
+}
+</script>

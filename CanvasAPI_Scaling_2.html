@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let context = document.getElementById("canvas").getContext("2d");
+
+context.save();
+context.fillStyle = "#FF0000";
+context.scale(7, 7);
+context.fillRect(0, 0, 40, 40);
+
+context.restore();
+context.save();
+
+context.fillStyle = "#00FF00";
+context.scale(6, 6);
+context.fillRect(0, 0, 40, 40);
+
+context.restore();
+context.save();
+
+context.fillStyle = "#0000FF";
+context.scale(5, 5);
+context.fillRect(0, 0, 40, 40);
+</script>

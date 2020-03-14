@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas#canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1720" height="970"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+  // CanvasRenderingContext2D
+  canvasRenderingContext = canvas.getContext("2d");
+
+  let width = eval(canvas.getAttribute("width"));
+  let height = eval(canvas.getAttribute("height"));
+
+  draw(width, height, 5, 0, canvasRenderingContext, true);
+}
+
+function draw(WIDTH, HEIGHT, INCREMENT_POSITION_VALUES, DECREMENT_DIMENSION_VALUES, CanvasRenderingContext, autoIncrementationByPositionValues = false){
+  var X = 0; var Y = 0;
+  if(autoIncrementationByPositionValues){
+    DECREMENT_DIMENSION_VALUES = INCREMENT_POSITION_VALUES * 2
+  }
+  while(true){
+    CanvasRenderingContext.strokeRect(X, Y, WIDTH, HEIGHT);
+
+    X += INCREMENT_POSITION_VALUES; Y += INCREMENT_POSITION_VALUES;
+    WIDTH -= DECREMENT_DIMENSION_VALUES; HEIGHT -= DECREMENT_DIMENSION_VALUES;
+
+    if(HEIGHT < 0){
+      break;
+    }
+  }
+}
+</script>

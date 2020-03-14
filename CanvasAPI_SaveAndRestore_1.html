@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+function draw(){
+    let ctx = document.getElementById("canvas").getContext("2d");
+
+    ctx.fillRect(0, 0, 150, 150); // Draw a square with the default values ( background-color : black )
+
+    // !!!!!!!!!!!!! SAVED !!!!!!!!!!!!! #000000
+    ctx.save(); // Save the current state
+    // !!!!!!!!!!!!! SAVED !!!!!!!!!!!!! #000000
+
+    ctx.fillStyle = "#00FF00" // Change the properties
+    ctx.fillRect(15, 15, 120, 120); // Draw a square with the new properties
+    
+    // !!!!!!!!!!!!! SAVED !!!!!!!!!!!!! #00FF00
+    ctx.save(); // Save the current state
+    // !!!!!!!!!!!!! SAVED !!!!!!!!!!!!! #00FF00
+
+    ctx.fillStyle = "#FF0000"; // Change the properties
+    ctx.fillRect(30, 30, 90, 90); // Draw a square with the new properties
+
+    ctx.restore(); // Load the previous properties
+    console.log(`CTX RESTORED PROPERTIES : ${ctx.fillStyle}`);
+    ctx.fillRect(45, 45, 60, 60);
+
+    ctx.restore(); // Load the previous properties
+    console.log(`CTX RESTORED PROPERTIES : ${ctx.fillStyle}`);
+    ctx.fillRect(60, 60, 30, 30);
+};
+document.addEventListener(
+    "DOMContentLoaded",
+    draw,
+    false // dispatch event in the bubbling phase not in the capturing phase
+);
+</script>

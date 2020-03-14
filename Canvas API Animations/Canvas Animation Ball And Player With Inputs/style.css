@@ -1,0 +1,107 @@
+body{
+	display : flex;
+
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #333;
+}
+h1#Title{
+	font-size: 50px;
+	font-family: "Helvetica";
+	color: #f4f4f4;
+}
+section#Inputs{
+	display: grid;
+
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, 1fr);
+
+	width: 100%;
+	text-align: center;
+
+	align-items: center;
+	justify-content: center;
+}
+section#Inputs > div{
+	padding: 20px;
+}
+h1.configurationTitle{
+	font-size: 30px;
+	font-family: "Helvetica";
+	color: #f4f4f4;
+}
+input{
+	background-color: #222;
+	color: #f3f3f3;
+	
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+
+	width: 200px;
+
+	border: 0;
+}
+input[type="checkbox"]{
+	background-color: #f4f4f4;
+	margin-left: 50px;
+}
+input:hover{
+	background-color: coral;
+	color: #222;
+
+	transition: all 5000ms;
+}
+button{
+	background-color: coral;
+	border: 0;
+
+	padding: 15px;
+	margin: 10px;
+
+	border: 0;
+	border-radius: 5px;
+}
+button:hover{
+	background-color: #333;
+	color: coral;
+
+	transition: all 2000ms;
+}
+div#asyncBallStopDiv{
+	display : grid;
+
+	align-items: center;
+	justify-content: center;
+
+
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows : 1fr;
+
+	text-align: center;
+	margin: auto;
+	width: 600px;
+
+	padding: 15px;
+}
+p#asyncBallStopText{
+	color: #f4f4f4;
+	font-family: "Helvetica";
+
+	margin-left : 125px;
+	padding: 0;
+}
+
+canvas{
+	overflow: hidden;
+}
+
+div#ballConfiguration{
+	margin-bottom: 50px;
+}
+
+img#playerImage{
+	display: none;
+}

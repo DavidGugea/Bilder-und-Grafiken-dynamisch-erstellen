@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+    let canvasRenderingContext = canvas.getContext("2d");
+    canvasRenderingContext.font = "48px Operator Mono";
+    // canvasRenderingContext.textAlign = "center";
+    canvasRenderingContext.direction = "rtl";
+
+    canvasRenderingContext.fillText("Hello World", 400, 50);
+    canvasRenderingContext.strokeText("Hello World", 400, 100);
+}
+</script>

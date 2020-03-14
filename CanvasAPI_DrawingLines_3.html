@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas#canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+  let canvasRenderingContext = canvas.getContext("2d");
+
+  canvasRenderingContext.strokeStyle = "rgb(0, 0, 0)";
+
+  canvasRenderingContext.beginPath();
+
+  canvasRenderingContext.moveTo(0, 150);
+  canvasRenderingContext.lineTo(500, 150);
+  canvasRenderingContext.lineTo(250, 0);
+  canvasRenderingContext.lineTo(0, 150);
+  canvasRenderingContext.lineTo(250, 300);
+  canvasRenderingContext.lineTo(500, 150);
+
+  canvasRenderingContext.stroke();
+};
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+function draw(){
+    let canvas = document.getElementById("canvas");
+    if(canvas.getContext){
+        window.requestAnimationFrame(redraw);
+    }
+}
+function redraw(){
+    let context = document.getElementById("canvas").getContext("2d");
+    context.clearRect(0, 0, 500, 300); // Empty out the canvas box
+
+    let time = new Date();
+    let angle = (((2 * Math.PI) / 6) * time.getSeconds() + ( (2 * Math.PI) / 6000 ) * time.getMilliseconds());
+
+    context.fillStyle = "#FF0000";
+    context.save();
+    context.translate(150, 150);
+    context.rotate(angle);
+    context.translate(0, 25);
+    context.fillRect(5, 5, 20, 20);
+    context.restore();
+
+    context.fillStyle = "#00FF00";
+    context.save();
+    context.translate(150, 150);
+    context.rotate(angle);
+    context.translate(0, 50);
+    context.fillRect(5, 5, 20, 20);
+    context.restore();
+
+    context.fillStyle = "#0000FF";
+    context.save();
+    context.translate(150, 150);
+    context.rotate(angle);
+    context.translate(0, 75);
+    context.fillRect(5, 5, 20, 20);
+    context.restore();
+
+    window.requestAnimationFrame(redraw);
+};
+
+window.addEventListener(
+    "DOMContentLoaded",
+    draw,
+    false // dispatch event in the bubbling phase not in the capturing phase
+)
+</script>

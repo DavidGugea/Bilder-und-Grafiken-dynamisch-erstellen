@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100vh;
+            width: 100%;
+        }
+        canvas#canvas{
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+    let canvasRenderingContext = canvas.getContext("2d");
+    let gradient = canvasRenderingContext.createRadialGradient(
+        Math.floor(window.innerWidth/2)-500, Math.floor(window.innerHeight/2)-500, 250, 
+        Math.floor(window.innerWidth/2)-250, Math.floor(window.innerHeight/2)-500, 1000
+    );
+
+    canvasRenderingContext.fillStyle = gradient;
+    canvasRenderingContext.fillRect(
+        0, 0,
+        window.innerWidth, window.innerHeight
+    );
+};
+</script>

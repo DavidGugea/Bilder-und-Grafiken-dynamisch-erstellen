@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+    let canvasRenderingContext = canvas.getContext("2d");
+    
+    canvasRenderingContext.fillStyle = "rgb(99, 166, 243)";
+    canvasRenderingContext.fillRect(50, 250, 10, 10);
+
+    canvasRenderingContext.fillStyle = "rgb(94, 240, 201)"
+    canvasRenderingContext.fillRect(50, 100, 10, 10);
+
+    canvasRenderingContext.fillStyle = "rgb(246, 147, 35)";
+    canvasRenderingContext.fillRect(300, 100, 10, 10);
+
+    
+    let path = new Path2D();
+    path.moveTo(50, 200);
+
+    path.arcTo(
+        50, 100,
+        300, 100,
+        30
+    );
+
+    path.lineTo(300, 100);
+    path.closePath();
+
+    canvasRenderingContext.stroke(path);
+}
+</script>

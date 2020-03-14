@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        canvas#canvas{
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1080" height="550"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+    let canvasRenderingContext = canvas.getContext("2d");
+
+    canvasRenderingContext.save();
+
+    let GRADE = 0.4;
+
+    canvasRenderingContext.fillStyle = "#FF0000";
+    canvasRenderingContext.rotate(GRADE);
+    canvasRenderingContext.fillRect(540, 0, 50, 50);
+
+    canvasRenderingContext.restore();
+    canvasRenderingContext.save();
+
+    canvasRenderingContext.fillStyle = "#00FF00";
+    canvasRenderingContext.rotate(GRADE);
+    canvasRenderingContext.fillRect(540, -50, 50, 50);
+
+    canvasRenderingContext.restore();
+    canvasRenderingContext.save();
+
+    canvasRenderingContext.fillStyle = "#0000FF";
+    canvasRenderingContext.rotate(GRADE);
+    canvasRenderingContext.fillRect(590, 0, 50, 50);
+    
+    canvasRenderingContext.restore();
+    canvasRenderingContext.save();
+
+    canvasRenderingContext.fillStyle = "#333";
+    canvasRenderingContext.rotate(GRADE);
+    canvasRenderingContext.fillRect(590, -50, 50, 50);
+}
+</script>

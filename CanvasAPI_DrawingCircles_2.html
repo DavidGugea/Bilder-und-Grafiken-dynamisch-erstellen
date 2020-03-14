@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let context = document.getElementById("canvas");
+if(context.getContext){
+    let canvasRenderingContext = context.getContext("2d");
+
+    // START POINT
+    canvasRenderingContext.fillStyle = "rgb(99, 166, 243)";
+    canvasRenderingContext.fillRect(50, 250, 10, 10);
+
+    // CONTROL ( PIVOT ) POINT 0
+    canvasRenderingContext.fillStyle = "rgb(94, 240, 201)"
+    canvasRenderingContext.fillRect(50, 100, 10, 10);
+
+    // CONTROL ( PIVOT ) POINT 1
+    canvasRenderingContext.fillStyle = "rgb(246, 147, 35)";
+    canvasRenderingContext.fillRect(300, 100, 10, 10);
+
+    // 2D Path
+    let path = new Path2D();
+    path.moveTo(50, 250);
+
+    path.arcTo(
+        50, 100, // PIVOT 0
+        300, 100, // PIVOT 1 
+        50    // GRADE
+    );
+
+    path.lineTo(300, 100);
+
+    canvasRenderingContext.stroke(path);
+};
+</script>

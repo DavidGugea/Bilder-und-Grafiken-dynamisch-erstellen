@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas#canvas{
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="460" height="100"></canvas>
+</body>
+</html>
+<script>
+function draw(){
+  var canvas = document.getElementById("canvas");
+  if(canvas.getContext){
+    let context = canvas.getContext("2d");
+
+
+    context.fillStyle = 'rgb(200, 0, 0)';
+    context.fillRect(10, 10, 80, 80);
+    context.fillStyle = "rgba(0, 0, 200, 0.5)";
+    context.fillRect(100, 10, 80, 80);
+
+
+    context.strokeStyle = "rgb(200, 0, 0)";
+    context.strokeRect(190, 10, 80, 80);
+    context.strokeStyle = "rgba(0, 0, 200, 0.5)";
+    context.strokeRect(280, 10, 80, 80);
+
+
+    // Head
+    context.fillStyle = "rgb(200, 0, 0)";
+    context.fillRect(370, 10, 80, 80);
+
+    context.clearRect(380, 20, 60, 20);
+
+    context.fillRect(390, 25, 10, 10);
+    context.fillRect(420, 25, 10, 10);
+
+    context.clearRect(385, 60, 50, 10);
+  }
+}
+draw();
+</script>

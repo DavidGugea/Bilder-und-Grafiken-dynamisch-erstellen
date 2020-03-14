@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1875" height="1200"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+  // Create the CanvasRenderingContext2D
+  let context = canvas.getContext("2d");
+
+  // Get the values and transform them in integers
+  let X_AXIS = 25;
+  let Y_AXIS = 25;
+  let WIDTH = eval(canvas.getAttribute("width"))-50;
+  let HEIGHT = eval(canvas.getAttribute("height"))-50;
+
+  while(true){
+    context.strokeRect(X_AXIS, Y_AXIS, WIDTH, HEIGHT);
+
+    X_AXIS += 25; Y_AXIS += 25;
+    WIDTH -= 50; HEIGHT -= 50;
+
+    console.log(`X_AXIS : ${X_AXIS} // Y_AXIS : ${Y_AXIS}`);
+    console.log(`WIDTH : ${WIDTH} // HEIGHT : ${HEIGHT}`);
+    for(let i = 0 ; i < 3 ; i++){
+      console.log(" ");
+    }
+
+    if(HEIGHT < 0){
+      break;
+    }
+  }
+}
+</script>

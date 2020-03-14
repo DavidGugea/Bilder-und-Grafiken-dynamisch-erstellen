@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1 id="Title">Canvas API</h1>
+	<section id="Inputs">
+		<!-- CANVAS CONFIGURATION -->
+
+		<div id="canvasConfiguration">
+			<h1 class="configurationTitle">Canvas Configuration</h1>
+			<div id="canvasInputs">
+				<input id="canvasWidth" type="number" placeholder="Canvas width"></input>
+				<input id="canvasHeight" type="number" placeholder="Canvas height"></input>
+				<input id="canvasBackgroundColor" type="text" placeholder="Canvas background color"></input>
+				<input id="canvasBorderRadius" type="number" placeholder="Canvas border radius"></input>
+			</div>
+			<button id="canvasCreateButton">Create new canvas</button>
+		</div>
+
+		<!-- CANVAS CONFIGURATION -->
+
+		<!-- BALL CONFIGURATION -->
+
+		<div id="ballConfiguration">
+			<h1 class="configurationTitle">Ball Configuration</h1>
+			<div id="ballInputs">
+				<div>
+					<input id="ball_POS_X" type="number" placeholder="Ball X Pos"></input>
+					<input id="ball_POS_Y" type="number" placeholder="Ball Y Pos"></input>
+				</div>
+				<div>
+					<input id="ball_Speed_X" type="number" placeholder="Speed x"></input>
+					<input id="ball_Speed_Y" type="number" placeholder="Speed Y"></input>
+				</div>
+				<div>
+					<input id="ball_Color" type="text" placeholder="Ball Color"></input>
+					<input id="ball_Radius" type="number" placeholder="Ball Radius"></input>
+				</div>
+				<div id="asyncBallStopDiv">
+					<p id="asyncBallStopText">Async ball stop : </p>
+					<input id="asyncBallStop" type="checkbox"></input>
+				</div>
+			</div>
+			<div id="ballButtons">
+				<button id="ballCreateButton">Create</button>
+				<button id="ballStopButton">Stop</button>
+				<button id="ballClearButton">Clear</button>
+			</div>
+		</div>
+
+		<!-- BALL CONFIGURATION -->
+
+		<!-- PLAYER CONFIGURATION -->
+
+		<div id="playerConfiguration">
+			<h1 class="configurationTitle">Player Configuration</h1>
+			<div id="playerInputs">
+				<div>
+					<input id="player_POS_X" type="number" placeholder="Player X Pos"></input>
+					<input id="player_POS_Y" type="number" placeholder="Player Y Pos"></input>
+				</div>
+				<div>
+					<input id="player_Width" type="number" placeholder="Player Width"></input>
+					<input id="player_Height" type="number" placeholder="Player Height"></input>
+				</div>
+				<input id="player_Speed" type="number" placeholder="Player Speed"></input>
+			</div>
+			<div id="playerButtons">
+				<button id="playerCreateButton">Create</button>
+				<button id="playerClearButton">Clear</button>
+			</div>
+		</div>
+
+		<!-- PLAYER CONFIGURATION -->		
+	</section>
+
+	<!-- Player image -->
+	<img src="char.png" alt="Player image" id="playerImage">
+</body>
+</html>
+<script src="script.js"></script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas#canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+  let canvasRenderingContext = canvas.getContext("2d");
+
+  /* DRAW A LINE */
+
+  // Begin the path of drawing the line
+  canvasRenderingContext.beginPath();
+  // Move the "imaginary" pen to the point 0 | 0
+  canvasRenderingContext.moveTo(0, 0);
+  // Move the line to a specific point
+  canvasRenderingContext.lineTo(500, 300);
+  // Give color to the line
+  canvasRenderingContext.stroke();
+
+  canvasRenderingContext.beginPath();
+  canvasRenderingContext.moveTo(0, 300);
+  canvasRenderingContext.lineTo(500, 0);
+  canvasRenderingContext.stroke();
+
+  canvasRenderingContext.beginPath();
+  canvasRenderingContext.moveTo(250, 0);
+  canvasRenderingContext.lineTo(250, 300);
+  canvasRenderingContext.stroke();
+
+  canvasRenderingContext.beginPath();
+  canvasRenderingContext.moveTo(0, 150);
+  canvasRenderingContext.lineTo(500, 150);
+  canvasRenderingContext.stroke();
+}
+</script>

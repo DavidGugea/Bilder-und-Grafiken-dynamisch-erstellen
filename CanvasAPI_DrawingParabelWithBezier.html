@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas#canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="300"></canvas>
+</body>
+</html>
+<script>
+let canvas = document.getElementById("canvas");
+if(canvas.getContext){
+    // Initialize rendering context
+    let canvasRenderingContext = canvas.getContext("2d");
+
+    /*
+    HOW TO CREATE PARABEL RAW -> 
+
+    // Path2D
+    let path = new Path2D();
+
+    path.moveTo(100, 150);
+
+    path.bezierCurveTo(
+        200, 250,
+        200, 250,
+        300, 150
+    );
+    
+    path.moveTo(100, 150);
+
+    path.bezierCurveTo(
+        200, 50,
+        200, 50,
+        300, 150
+    );
+
+
+    // Stroke path to rendering
+    canvasRenderingContext.stroke(path);
+    */
+
+    canvasRenderingContext.stroke(
+        drawParabel(
+            300, 150, 700, 200, false
+        )
+    );
+    /*
+    canvasRenderingContext.stroke(
+        drawParabel(
+            0, 150, 1000, 200, false
+        )
+    );
+    */
+};
+function drawParabel(START_POINT_X_AXIS, START_POINT_Y_AXIS, END_POINT_X_AXIS, PIVOT_DISTANCE_Y_AXIS = 50, upsideDown = false){
+    // Create the 2D Path that will be returned. We will use the returned value ( 2d path ) to stroke it to a rendering context
+    let path = new Path2D();
+
+    // The end point Y_AXIS value will always be the same as the value on the Y_AXIS for the starting point
+    END_POINT_Y_AXIS = START_POINT_Y_AXIS;
+
+    // Create the PIVOT Coordinates
+    PIVOT_X_AXIS = START_POINT_X_AXIS + Math.floor(Math.abs(START_POINT_X_AXIS - END_POINT_X_AXIS) / 2);
+    let PIVOT_Y_AXIS;
+
+    // If upside down is true, we will have to add for the PIVOT Y_AXIS so that it stays up, otherwise -> discard so that it's down
+    upsideDown ? PIVOT_Y_AXIS = START_POINT_Y_AXIS - PIVOT_DISTANCE_Y_AXIS : PIVOT_Y_AXIS = START_POINT_Y_AXIS + PIVOT_DISTANCE_Y_AXIS;
+
+    // Move the path to the default start point coordinate values
+    path.moveTo(START_POINT_X_AXIS, START_POINT_Y_AXIS);
+
+    // Create the parabel using bezier
+    path.bezierCurveTo(
+        PIVOT_X_AXIS, PIVOT_Y_AXIS,
+        PIVOT_X_AXIS, PIVOT_Y_AXIS,
+        END_POINT_X_AXIS, END_POINT_Y_AXIS
+    );
+
+    // Return the path for stroke rendering context
+    return path;
+};
+</script>

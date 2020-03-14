@@ -1,0 +1,25 @@
+*{
+    overflow: hidden;
+}
+body{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #111222;
+}
+#canvas{
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+#source{
+    display: none;
+}
+#Title{
+    color: #f4f4f4;
+    
+    font-size : "100";
+    font-family : "Roboto Mono"
+}
