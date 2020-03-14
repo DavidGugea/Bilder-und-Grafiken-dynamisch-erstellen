@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        rect{
+            stroke-width: 4;
+            fill : #FFFFFF;
+            stroke: #3080D0
+        }
+        #circle:hover{
+            cursor: pointer;
+        }
+        #circle{
+            fill-opacity: 0.5;
+            stroke-width: 4;
+            fill: #3080D0;
+            stroke: #3080D0;
+        }
+        #circle.active{
+            fill: #000000;
+        }
+        text{
+            fill: #FFFFFF;
+            font-family: sans-serif
+        }
+    </style>
+</head>
+<body>
+    <svg id="svg" version="1.1" baseProfile="full" width="500" height="500" xmlns = "http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" />
+        <circle id="circle" cx = "100" cy="100" r="80"/>
+    </svg>
+    <div>
+        <input type="range" id="sliderX" min = "1" max="500" value="100">
+        <input type="range" id="sliderY" min = "1" max="500" value="100">
+    </div>
+</body>
+</html>
+<script>
+'use strict'
+function init(){
+    let sliderX = document.getElementById("sliderX");
+    let sliderY = document.getElementById("sliderY");
+
+    sliderX.addEventListener(
+        "change",
+        (event) => {
+            moveCircle(e.target.value, 'x');
+        },
+        false
+    )
+    sliderY.addEventListener(
+        "change",
+        (event) => {
+            moveCircle(e.target.value, 'y');
+        },
+        false
+    )
+}
+
+function moveCircle(value, direction){
+    let svgDocument = document.getElementById("svg");
+    let circle = svgDocument.getElementsByClassName("circle");
+
+    circle.setAttribute("c" + direction, value);
+}
+</script>
